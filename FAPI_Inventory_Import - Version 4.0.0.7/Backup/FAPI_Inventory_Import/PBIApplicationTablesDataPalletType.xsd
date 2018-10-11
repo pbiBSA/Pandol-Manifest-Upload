@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PBIApplicationTablesDataPalletType" targetNamespace="http://tempuri.org/PBIApplicationTablesDataPalletType.xsd" xmlns:mstns="http://tempuri.org/PBIApplicationTablesDataPalletType.xsd" xmlns="http://tempuri.org/PBIApplicationTablesDataPalletType.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FAPI_Inventory_Import.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Famous_Color_DataTableAdapter" GeneratorDataComponentClassName="Famous_Color_DataTableAdapter" Name="Famous_Color_Data" UserDataComponentName="Famous_Color_DataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="PBIApplicationTables.dbo.Famous_Color_Data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT    DISTINCT    NAME, NAMEINVC, INACTIVEFLAG
+FROM            Famous_Color_Data
+ORDER BY NAMEINVC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="NAMEINVC" DataSetColumn="NAMEINVC" />
+              <Mapping SourceColumn="INACTIVEFLAG" DataSetColumn="INACTIVEFLAG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PBIApplicationTablesDataPalletType" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PBIApplicationTablesDataPalletType" msprop:Generator_DataSetName="PBIApplicationTablesDataPalletType" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Famous_Color_Data" msprop:Generator_UserTableName="Famous_Color_Data" msprop:Generator_RowDeletedName="Famous_Color_DataRowDeleted" msprop:Generator_RowChangedName="Famous_Color_DataRowChanged" msprop:Generator_RowClassName="Famous_Color_DataRow" msprop:Generator_RowChangingName="Famous_Color_DataRowChanging" msprop:Generator_RowEvArgName="Famous_Color_DataRowChangeEvent" msprop:Generator_RowEvHandlerName="Famous_Color_DataRowChangeEventHandler" msprop:Generator_TableClassName="Famous_Color_DataDataTable" msprop:Generator_TableVarName="tableFamous_Color_Data" msprop:Generator_RowDeletingName="Famous_Color_DataRowDeleting" msprop:Generator_TablePropName="Famous_Color_Data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAME" msprop:Generator_UserColumnName="NAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMEINVC" msprop:Generator_UserColumnName="NAMEINVC" msprop:Generator_ColumnPropNameInRow="NAMEINVC" msprop:Generator_ColumnVarNameInTable="columnNAMEINVC" msprop:Generator_ColumnPropNameInTable="NAMEINVCColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INACTIVEFLAG" msprop:Generator_UserColumnName="INACTIVEFLAG" msprop:Generator_ColumnPropNameInRow="INACTIVEFLAG" msprop:Generator_ColumnVarNameInTable="columnINACTIVEFLAG" msprop:Generator_ColumnPropNameInTable="INACTIVEFLAGColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

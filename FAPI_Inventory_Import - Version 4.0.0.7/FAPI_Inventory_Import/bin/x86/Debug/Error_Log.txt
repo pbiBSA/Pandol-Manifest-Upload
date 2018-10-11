@@ -1,0 +1,74 @@
+11/5/2012 4:51:58 PM:  Starting Test run.
+11/5/2012 4:52:25 PM:  Error loading excel file for vessel information. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 315
+11/5/2012 4:52:26 PM:  Error reading vessel information. 
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 332
+11/5/2012 4:52:28 PM:  Error loading excel file data section. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillSchemaInternal(DataSet dataset, DataTable datatable, SchemaType schemaType, IDbCommand command, String srcTable, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillSchema(DataSet dataSet, SchemaType schemaType, IDbCommand command, String srcTable, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillSchema(DataSet dataSet, SchemaType schemaType)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 408
+11/5/2012 4:52:30 PM:  Error removing blank rows from dataset table. 
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 470
+11/5/2012 4:55:47 PM:  Starting Test run.
+11/5/2012 4:56:20 PM:  Error loading excel file for vessel information. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 315
+11/5/2012 4:56:21 PM:  Error reading vessel information. 
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 332
+11/5/2012 4:56:23 PM:  Error loading excel file data section. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillSchemaInternal(DataSet dataset, DataTable datatable, SchemaType schemaType, IDbCommand command, String srcTable, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillSchema(DataSet dataSet, SchemaType schemaType, IDbCommand command, String srcTable, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillSchema(DataSet dataSet, SchemaType schemaType)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 408
+11/5/2012 4:56:26 PM:  Error removing blank rows from dataset table. 
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 470

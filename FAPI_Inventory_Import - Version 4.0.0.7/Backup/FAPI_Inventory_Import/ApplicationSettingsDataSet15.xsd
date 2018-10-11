@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ApplicationSettingsDataSet15" targetNamespace="http://tempuri.org/ApplicationSettingsDataSet15.xsd" xmlns:mstns="http://tempuri.org/ApplicationSettingsDataSet15.xsd" xmlns="http://tempuri.org/ApplicationSettingsDataSet15.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ApplicationSettingsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ApplicationSettingsConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FAPI_Inventory_Import.Properties.Settings.GlobalReference.Default.ApplicationSettingsConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FAPI_Inventory_Import.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Translation_Validation_TableTableAdapter" GeneratorDataComponentClassName="Translation_Validation_TableTableAdapter" Name="Translation_Validation_Table" UserDataComponentName="Translation_Validation_TableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="ApplicationSettings.dbo.Translation_Validation_Table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Data_Column_Name
+FROM            Translation_Validation_Table</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Data_Column_Name" DataSetColumn="Data_Column_Name" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ApplicationSettingsConnectionString (Settings)" DbObjectName="ApplicationSettings.dbo.Translation_Validation_Table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DISTINCT Data_Column_Name FROM dbo.Translation_Validation_Table</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ApplicationSettingsConnectionString (Settings)" DbObjectName="ApplicationSettings.dbo.Translation_Validation_Table" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DISTINCT Data_Column_Name
+FROM            Translation_Validation_Table</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ApplicationSettingsDataSet15" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ApplicationSettingsDataSet15" msprop:Generator_DataSetName="ApplicationSettingsDataSet15" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Translation_Validation_Table" msprop:Generator_UserTableName="Translation_Validation_Table" msprop:Generator_RowDeletedName="Translation_Validation_TableRowDeleted" msprop:Generator_RowChangedName="Translation_Validation_TableRowChanged" msprop:Generator_RowClassName="Translation_Validation_TableRow" msprop:Generator_RowChangingName="Translation_Validation_TableRowChanging" msprop:Generator_RowEvArgName="Translation_Validation_TableRowChangeEvent" msprop:Generator_RowEvHandlerName="Translation_Validation_TableRowChangeEventHandler" msprop:Generator_TableClassName="Translation_Validation_TableDataTable" msprop:Generator_TableVarName="tableTranslation_Validation_Table" msprop:Generator_RowDeletingName="Translation_Validation_TableRowDeleting" msprop:Generator_TablePropName="Translation_Validation_Table">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Data_Column_Name" msprop:Generator_UserColumnName="Data_Column_Name" msprop:Generator_ColumnVarNameInTable="columnData_Column_Name" msprop:Generator_ColumnPropNameInRow="Data_Column_Name" msprop:Generator_ColumnPropNameInTable="Data_Column_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

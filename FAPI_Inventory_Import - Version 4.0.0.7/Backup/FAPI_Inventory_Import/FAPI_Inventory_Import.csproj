@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD3AEAED-284B-4F6D-8085-988F6E0A72E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FAPI_Inventory_Import</RootNamespace>
+    <AssemblyName>FAPI_Inventory_Import</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>562E3983E4A54E074473165E5412B9AA7970CE93</ManifestCertificateThumbprint>
+    <ManifestKeyFile>FAPI_Inventory_Import_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>FAPI_Inventory_Import.Program</StartupObject>
+    <TargetZone>LocalIntranet</TargetZone>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <ApplicationIcon>box-Green-icon.ico</ApplicationIcon>
+    <PublishUrl>C:\Users\mikhael\Desktop\Info Docs\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Manifest Upload Application</ProductName>
+    <PublisherName>Pandol</PublisherName>
+    <MinimumRequiredVersion>1.0.1.13</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>\\172.16.0.69\programs\ManifestUploadApp\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBoxFAPI_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxFAPI_Import.Designer.cs">
+      <DependentUpon>AboutBoxFAPI_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdamsExporter.cs" />
+    <Compile Include="AdamsExportToExcel.cs" />
+    <Compile Include="AdamsTranslator.cs" />
+    <Compile Include="Adams_Codes_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adams_Codes_Editor.Designer.cs">
+      <DependentUpon>Adams_Codes_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet.cs">
+      <DependentUpon>ApplicationSettingsDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet2.cs">
+      <DependentUpon>ApplicationSettingsDataSet2.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet8.cs">
+      <DependentUpon>ApplicationSettingsDataSet8.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet9.cs">
+      <DependentUpon>ApplicationSettingsDataSet9.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetCommodityCodes.cs">
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetCommodityCodes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet4.cs">
+      <DependentUpon>ApplicationSettingsDataSet4.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetCommodityCodes1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetGrowersBlock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSetGrowersBlock.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetImportTemplate1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSetImportTemplate1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDataSetStorageID.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationSettingsDataSetStorageID.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Archive_Data.cs" />
+    <Compile Include="CombinedMixedBoxesDataViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CombinedMixedBoxesDataViewForm.Designer.cs">
+      <DependentUpon>CombinedMixedBoxesDataViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CombineMixedBoxesOnPallets.cs" />
+    <Compile Include="CreateLineNumber.cs" />
+    <Compile Include="DataLocation.cs" />
+    <Compile Include="DataSetWarehouse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetWarehouse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataTranslator.cs" />
+    <Compile Include="DataTranslatorByGrower.cs" />
+    <Compile Include="DataValidation.cs" />
+    <Compile Include="DateNumberToDate.cs" />
+    <Compile Include="DoesTagNumberExist.cs" />
+    <Compile Include="Error_Logging.cs" />
+    <Compile Include="FamousExporter.cs" />
+    <Compile Include="FamousXMLExporter.cs" />
+    <Compile Include="FirstLetterCap.cs" />
+    <Compile Include="frmSelectDataSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectDataSheet.designer.cs">
+      <DependentUpon>frmSelectDataSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTranslationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTranslationEditor.Designer.cs">
+      <DependentUpon>frmTranslationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFAPI_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFAPI_Import.Designer.cs">
+      <DependentUpon>FormFAPI_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetDataSheetName.cs" />
+    <Compile Include="GetExcelColumnName.cs" />
+    <Compile Include="GetExporterFromPrefix.cs" />
+    <Compile Include="GrowerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrowerEditor.Designer.cs">
+      <DependentUpon>GrowerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import Template Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import Template Editor.Designer.cs">
+      <DependentUpon>Import Template Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportTemplateSettings.cs" />
+    <Compile Include="Import_Template_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import_Template_Selection.Designer.cs">
+      <DependentUpon>Import_Template_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncrementReceiptNumber.cs" />
+    <Compile Include="PBIApplicationTablesDataGrade.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataGrade.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataLabel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataLabel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataPackCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataPackCode.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataPalletType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataPalletType.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSetStoneFruitList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSetStoneFruitList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesDataSize.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesDataSize.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PBIApplicationTablesGrowerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBIApplicationTablesGrowerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBoxFAPI_Import.resx">
+      <DependentUpon>AboutBoxFAPI_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adams_Codes_Editor.resx">
+      <DependentUpon>Adams_Codes_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CombinedMixedBoxesDataViewForm.resx">
+      <DependentUpon>CombinedMixedBoxesDataViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectDataSheet.resx">
+      <DependentUpon>frmSelectDataSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTranslationEditor.resx">
+      <DependentUpon>frmTranslationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFAPI_Import.resx">
+      <DependentUpon>FormFAPI_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrowerEditor.resx">
+      <DependentUpon>GrowerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import Template Editor.resx">
+      <DependentUpon>Import Template Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import_Template_Selection.resx">
+      <DependentUpon>Import_Template_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegionEditor.resx">
+      <DependentUpon>RegionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select_Receipt_Number.resx">
+      <DependentUpon>Select_Receipt_Number.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoneFruitList.resx">
+      <DependentUpon>StoneFruitList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplateCreator.resx">
+      <DependentUpon>TemplateCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translation-Validation Table Editor.resx">
+      <DependentUpon>Translation-Validation Table Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse_Editor.resx">
+      <DependentUpon>Warehouse_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="ApplicationSettingsDataSet.xsc">
+      <DependentUpon>ApplicationSettingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet.xss">
+      <DependentUpon>ApplicationSettingsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet1.xsc">
+      <DependentUpon>ApplicationSettingsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet1.xss">
+      <DependentUpon>ApplicationSettingsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet10.xsc">
+      <DependentUpon>ApplicationSettingsDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet10.xss">
+      <DependentUpon>ApplicationSettingsDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet11.xsc">
+      <DependentUpon>ApplicationSettingsDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet11.xss">
+      <DependentUpon>ApplicationSettingsDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet12.xsc">
+      <DependentUpon>ApplicationSettingsDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet12.xss">
+      <DependentUpon>ApplicationSettingsDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet13.xsc">
+      <DependentUpon>ApplicationSettingsDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet13.xss">
+      <DependentUpon>ApplicationSettingsDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet14.xsc">
+      <DependentUpon>ApplicationSettingsDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet14.xss">
+      <DependentUpon>ApplicationSettingsDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet15.xsc">
+      <DependentUpon>ApplicationSettingsDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet15.xss">
+      <DependentUpon>ApplicationSettingsDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet16.xsc">
+      <DependentUpon>ApplicationSettingsDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet16.xss">
+      <DependentUpon>ApplicationSettingsDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet17.xsc">
+      <DependentUpon>ApplicationSettingsDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet17.xss">
+      <DependentUpon>ApplicationSettingsDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet18.xsc">
+      <DependentUpon>ApplicationSettingsDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet18.xss">
+      <DependentUpon>ApplicationSettingsDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet2.xsc">
+      <DependentUpon>ApplicationSettingsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet2.xss">
+      <DependentUpon>ApplicationSettingsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet7.xsc">
+      <DependentUpon>ApplicationSettingsDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet7.xss">
+      <DependentUpon>ApplicationSettingsDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet8.xsc">
+      <DependentUpon>ApplicationSettingsDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet8.xss">
+      <DependentUpon>ApplicationSettingsDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet9.xsc">
+      <DependentUpon>ApplicationSettingsDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet9.xss">
+      <DependentUpon>ApplicationSettingsDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes.xsc">
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSetCommodityCodes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes.xss">
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet4.xsc">
+      <DependentUpon>ApplicationSettingsDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet4.xss">
+      <DependentUpon>ApplicationSettingsDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet5.xsc">
+      <DependentUpon>ApplicationSettingsDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet5.xss">
+      <DependentUpon>ApplicationSettingsDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet6.xsc">
+      <DependentUpon>ApplicationSettingsDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSet6.xss">
+      <DependentUpon>ApplicationSettingsDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes1.xsc">
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSetCommodityCodes1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSetCommodityCodes1.xss">
+      <DependentUpon>ApplicationSettingsDataSetCommodityCodes1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetGrowersBlock.xsc">
+      <DependentUpon>ApplicationSettingsDataSetGrowersBlock.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetGrowersBlock.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSetGrowersBlock.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSetGrowersBlock.xss">
+      <DependentUpon>ApplicationSettingsDataSetGrowersBlock.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetImportTemplate1.xsc">
+      <DependentUpon>ApplicationSettingsDataSetImportTemplate1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetImportTemplate1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSetImportTemplate1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSetImportTemplate1.xss">
+      <DependentUpon>ApplicationSettingsDataSetImportTemplate1.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetStorageID.xsc">
+      <DependentUpon>ApplicationSettingsDataSetStorageID.xsd</DependentUpon>
+    </None>
+    <None Include="ApplicationSettingsDataSetStorageID.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationSettingsDataSetStorageID.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationSettingsDataSetStorageID.xss">
+      <DependentUpon>ApplicationSettingsDataSetStorageID.xsd</DependentUpon>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DataSetWarehouse.xsc">
+      <DependentUpon>DataSetWarehouse.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetWarehouse.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetWarehouse.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetWarehouse.xss">
+      <DependentUpon>DataSetWarehouse.xsd</DependentUpon>
+    </None>
+    <None Include="FAPI_Inventory_Import_TemporaryKey.pfx" />
+    <None Include="PBIApplicationTablesDataGrade.xsc">
+      <DependentUpon>PBIApplicationTablesDataGrade.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataGrade.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataGrade.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataGrade.xss">
+      <DependentUpon>PBIApplicationTablesDataGrade.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataLabel.xsc">
+      <DependentUpon>PBIApplicationTablesDataLabel.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataLabel.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataLabel.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataLabel.xss">
+      <DependentUpon>PBIApplicationTablesDataLabel.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataPackCode.xsc">
+      <DependentUpon>PBIApplicationTablesDataPackCode.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataPackCode.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataPackCode.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataPackCode.xss">
+      <DependentUpon>PBIApplicationTablesDataPackCode.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataPalletType.xsc">
+      <DependentUpon>PBIApplicationTablesDataPalletType.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataPalletType.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataPalletType.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataPalletType.xss">
+      <DependentUpon>PBIApplicationTablesDataPalletType.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet.xsc">
+      <DependentUpon>PBIApplicationTablesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSet.xss">
+      <DependentUpon>PBIApplicationTablesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet1.xsc">
+      <DependentUpon>PBIApplicationTablesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSet1.xss">
+      <DependentUpon>PBIApplicationTablesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet2.xsc">
+      <DependentUpon>PBIApplicationTablesDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSet2.xss">
+      <DependentUpon>PBIApplicationTablesDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet3.xsc">
+      <DependentUpon>PBIApplicationTablesDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSet3.xss">
+      <DependentUpon>PBIApplicationTablesDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet4.xsc">
+      <DependentUpon>PBIApplicationTablesDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSet4.xss">
+      <DependentUpon>PBIApplicationTablesDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSetStoneFruitList.xsc">
+      <DependentUpon>PBIApplicationTablesDataSetStoneFruitList.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSetStoneFruitList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSetStoneFruitList.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSetStoneFruitList.xss">
+      <DependentUpon>PBIApplicationTablesDataSetStoneFruitList.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSize.xsc">
+      <DependentUpon>PBIApplicationTablesDataSize.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesDataSize.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesDataSize.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesDataSize.xss">
+      <DependentUpon>PBIApplicationTablesDataSize.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesGrowerDataSet.xsc">
+      <DependentUpon>PBIApplicationTablesGrowerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PBIApplicationTablesGrowerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PBIApplicationTablesGrowerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PBIApplicationTablesGrowerDataSet.xss">
+      <DependentUpon>PBIApplicationTablesGrowerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\FAPI_Inventory_Import.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Microsoft.Office.Core.OfficeDataSourceObject.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QCPalletSelection.cs" />
+    <Compile Include="RegionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegionEditor.Designer.cs">
+      <DependentUpon>RegionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Receipt_Number.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select_Receipt_Number.Designer.cs">
+      <DependentUpon>Select_Receipt_Number.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="StoneFruitList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StoneFruitList.Designer.cs">
+      <DependentUpon>StoneFruitList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemplateCreator.Designer.cs">
+      <DependentUpon>TemplateCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateSettingsException.cs" />
+    <Compile Include="Translation-Validation Table Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Translation-Validation Table Editor.Designer.cs">
+      <DependentUpon>Translation-Validation Table Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TruncateString.cs" />
+    <Compile Include="UpdateImportDatasetForQC.cs" />
+    <Compile Include="Warehouse_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse_Editor.Designer.cs">
+      <DependentUpon>Warehouse_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteExportTextFile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="box-Green-icon.ico" />
+    <Content Include="FAPI_Import.ico" />
+    <Content Include="Images\box-Green-icon.ico" />
+    <Content Include="Images\Pandol Logo 1.jpg" />
+    <Content Include="Images\Pandol Logo 2.jpg" />
+    <Content Include="Images\Pandol Logo 5.jpg" />
+    <SplashScreen Include="Images\Pandol Logo 6.jpg" />
+    <Content Include="Images\Pandol Logo.jpg" />
+    <Content Include="Images\pandol5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

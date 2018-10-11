@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSourceArchive">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=WEBAPPS;Initial Catalog=ImportDataWarehouse</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>f2694c12-b367-4f27-bad5-c0bd66d92b74</DataSourceID>
+</RptDataSource>

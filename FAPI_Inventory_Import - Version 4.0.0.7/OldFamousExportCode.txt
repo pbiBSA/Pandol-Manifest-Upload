@@ -1,0 +1,86 @@
+ try
+            {
+                for (int ExportDataRow = 0; ExportDataRow < Data2Export.Tables[0].Rows.Count; ExportDataRow++)
+                {
+
+                    //used to check to see if any of the product defining variables have changed.
+                    TempLineNumberStringCheck = Data2Export.Tables[0].Rows[ExportDataRow][1].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.CommodityColumn].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.VarietyColumn].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.StyleColumn].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.SizeColumn].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.GradeColumn].ToString().Trim()
+                        + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.LabelColumn].ToString().Trim();
+                    
+                    
+                    exportLineString = new StringBuilder();  //Start with as fresh stingbulder
+
+                    
+                    exportLineString.AppendFormat("{0,-9}", ReceiptNumber);  //blank for Receipt/Entry number  Increment this number!!!!
+                    exportLineString.AppendFormat("{0,1}", exportStringList[0]);  //add Transaction type
+                    exportLineString.AppendFormat("{0,-10}", exportStringList[1].Split(' ')[0]); //add Receive/Packdate, splitting off date
+                    exportLineString.AppendFormat("{0,1}", exportStringList[2]);  //add Bulk Flag
+                    exportLineString.AppendFormat("{0,-40}", exportStringList[3]);  //add Warehouse
+                    exportLineString.AppendFormat("{0,-12}", TruncateString.Truncate2(Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.MemoColumn].ToString().Trim(), 12));  //add blanks for Reference Field
+                    exportLineString.AppendFormat("{0,-40}", "");  //add blanks for Description field
+                    exportLineString.AppendFormat("{0,-40}", "");  //add blanks for Access Group field
+
+                    //If product definition changes, increment the line number
+                    if (LineNumberStringCheck != TempLineNumberStringCheck)
+                    {
+                        LineNumber++;
+                        
+                    }
+                    LineNumberStringCheck = TempLineNumberStringCheck;
+
+                    exportLineString.AppendFormat("{0,5}", LineNumber.ToString());  //add blanks for line number field
+
+                    //add prefix number to front of tag number.
+                    if (ImportSettings.PalletPrefixColumn == ImportSettings.TagNumberColumn)  //special case for which has prefix as part of tag number already
+                    {
+                        tagnumber = Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.TagNumberColumn].ToString().Trim();
+                    }
+                    else
+                    {
+                        tagnumber = Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.TagNumberColumn].ToString().Trim();
+                        if (!(exportStringList[10].ToString() == (Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.TagNumberColumn].ToString().Trim().Substring(0, 3))))
+                        {
+                            tagnumber = exportStringList[10].ToString() + Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.TagNumberColumn].ToString().Trim();
+                        }
+                    }
+                    exportLineString.AppendFormat("{0,-12}", tagnumber);  //add Tag Number
+                    exportLineString.AppendFormat("{0,-12}", Data2Export.Tables[0].Rows[ExportDataRow][1].ToString().Trim());  //add Grower Block ID, is always in column 1
+                    exportLineString.AppendFormat("{0,-12}", "");  //add blank Pool ID field
+                    exportLineString.AppendFormat("{0,1}", "");  //add blank for receipt# as lot id field
+                    exportLineString.AppendFormat("{0,-12}", "");  //add blank for optional Lot ID field
+                    exportLineString.AppendFormat("{0,-40}", "");  //add blanks for Lot Description field
+                    exportLineString.AppendFormat("{0,-12}", "");  //add blanks for Product ID field
+                    exportLineString.AppendFormat("{0,-10}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.CommodityColumn].ToString().Trim());   //exportStringList[5]); //enter a blank as this is not needed //add commondity ID
+                    exportLineString.AppendFormat("{0,-16}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.VarietyColumn].ToString().Trim());  //add Variety ID
+                    exportLineString.AppendFormat("{0,-10}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.StyleColumn].ToString().Trim());  //add Style ID
+                    exportLineString.AppendFormat("{0,-10}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.SizeColumn].ToString().Trim());  //add Size ID
+                    exportLineString.AppendFormat("{0,-10}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.GradeColumn].ToString().Trim());  //add Grade ID
+                    exportLineString.AppendFormat("{0,-16}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.LabelColumn].ToString().Trim());  //add Label ID
+                    exportLineString.AppendFormat("{0,-16}", exportStringList[6]);  //add Region ID
+                    exportLineString.AppendFormat("{0,-16}", exportStringList[7]);  //add Method ID
+                    exportLineString.AppendFormat("{0,-16}", exportStringList[8]);  //add Storage ID
+                    exportLineString.AppendFormat("{0,-16}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.PalletTypeColumn].ToString().Trim());  //add Color ID
+                    exportLineString.AppendFormat("{0,-16}", "");  //add blanks for Quality
+                    exportLineString.AppendFormat("{0,-16}", "");  //add blanks for Condition
+                    exportLineString.AppendFormat("{0,1}", exportStringList[9]);  //add Availabel Flag
+                    exportLineString.AppendFormat("{0,8}", Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.InventoryQuantityColumn].ToString().Trim());  //add Inventory/box count 
+                    exportLineString.AppendFormat("{0,-3}", "000");  //add 3 zeros for inventory quantity which has 3 implied decimal places
+                    exportLineString.AppendFormat("{0,-11}", "");  //add blanks for Quantity field
+                    exportLineString.AppendFormat("{0,-5}", "");  //add blanks for Unit of Measure field
+                    exportLineString.AppendFormat("{0,-4}", "");  //add blanks for Units per Pallet field
+                    exportLineString.AppendFormat("{0,-12}", "");  //add blanks for Room/Row ID field
+                    exportLineString.AppendFormat("{0,-10}", DateTime.Parse(Data2Export.Tables[0].Rows[ExportDataRow]
+                                                            [ImportSettings.FirstPackDateColumn].ToString().Trim(), mFomatter).ToString("MM/dd/yyyy"));  //add First Pack Date
+                    exportLineString.AppendFormat("{0,-14}", "");  //add blanks for GTIN field
+                    exportLineString.AppendFormat("{0,-20}", "");  //add blanks for GS1Lot field
+                    exportLineString.AppendFormat("{0,-10}", "");  //add blanks for GS1 Date field
+
+
+
+                    RecordsToExport.Add(exportLineString.ToString());  //add record to record list to send to file
+                }

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PBIApplicationTablesDataPackCode" targetNamespace="http://tempuri.org/PBIApplicationTablesDataPackCode.xsd" xmlns:mstns="http://tempuri.org/PBIApplicationTablesDataPackCode.xsd" xmlns="http://tempuri.org/PBIApplicationTablesDataPackCode.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FAPI_Inventory_Import.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Adams_ValuesTableAdapter" GeneratorDataComponentClassName="Adams_ValuesTableAdapter" Name="Adams_Values" UserDataComponentName="Adams_ValuesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="PBIApplicationTables.dbo.Export_Values" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Value
+FROM            Export_Values
+WHERE        (Data_Column_Name = 'PackCode')
+ORDER BY Value</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Value" DataSetColumn="Value" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PBIApplicationTablesDataPackCode" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PBIApplicationTablesDataPackCode" msprop:Generator_UserDSName="PBIApplicationTablesDataPackCode">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Adams_Values" msprop:Generator_UserTableName="Adams_Values" msprop:Generator_RowEvArgName="Adams_ValuesRowChangeEvent" msprop:Generator_TableVarName="tableAdams_Values" msprop:Generator_TablePropName="Adams_Values" msprop:Generator_RowDeletingName="Adams_ValuesRowDeleting" msprop:Generator_RowChangingName="Adams_ValuesRowChanging" msprop:Generator_RowDeletedName="Adams_ValuesRowDeleted" msprop:Generator_RowEvHandlerName="Adams_ValuesRowChangeEventHandler" msprop:Generator_TableClassName="Adams_ValuesDataTable" msprop:Generator_RowChangedName="Adams_ValuesRowChanged" msprop:Generator_RowClassName="Adams_ValuesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

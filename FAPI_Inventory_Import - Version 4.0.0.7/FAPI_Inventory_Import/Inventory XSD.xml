@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://www.famoussoftware.com/v6"
+xmlns:inventory="http://www.famoussoftware.com/v6/Inventory"
+xmlns:v6="http://www.famoussoftware.com/v6"
+targetNamespace="http://www.famoussoftware.com/v6/Inventory">
+<xs:import namespace="http://www.famoussoftware.com/v6"
+schemaLocation="CommonType.xsd"/>
+<xs:element name="InventoryTransaction" type="inventory:InventoryType"/>
+<xs:complexType name="InventoryType">
+<xs:sequence maxOccurs="1">
+<xs:element name="CRUDType" type="v6:CRUDTypeList" minOccurs="1"/>
+<xs:element name="TransactionType" type="v6:TransactionTypeList"
+minOccurs="1"/>
+<xs:element name="ProductType" type="v6:ProductTypeList" minOccurs="1"/>
+<xs:element name="ReceivingEntryNumber" type="xs:int" nillable="true"
+minOccurs="0"/>
+<xs:element name="PurchaseOrderNumber" type="v6:PurchaseOrderNumberType"
+nillable="true" minOccurs="0"/>
+<xs:element name="ApPoHdrIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="RunNumber" type="xs:int" nillable="true"
+minOccurs="0"/>
+<xs:element name="AllocationType" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="RepackType" type="v6:RepackTypeList" nillable="true"
+minOccurs="0"/>
+<xs:element name="TransactionDate" type="xs:date" nillable="true"
+minOccurs="0"/>
+<xs:element name="BulkFlag" type="v6:CharType" nillable="true"
+minOccurs="0"/>
+<xs:element name="FirstReceiveDate" type="xs:date" nillable="true"
+minOccurs="0"/>
+<xs:element name="Warehouse" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="WarehouseIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="Reference" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="Description" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="AccessGroup" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="AccessGroupIdx" type="xs:int" nillable="true"
+minOccurs="0"/>
+<xs:element name="LotId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="LotIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="LotDescription" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="ReceiptNumberAsLot" type="v6:CharType" nillable="true"
+minOccurs="0"/>
+<xs:element name="BlockId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="BlockIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="PoolId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="PoolIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="Reason" type="v6:String20Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="GLPostDate" type="xs:date" nillable="true" minOccurs="0"/>
+<xs:element name="TagSeries" type="v6:String40Type" nillable="true" minOccurs="0"/>
+<xs:element name="BulkTagSeries" type="v6:String40Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="AutoTag" type="v6:CharType" nillable="true" minOccurs="0"/>
+<xs:element name="ProductLines">
+<xs:complexType>
+<xs:sequence maxOccurs="unbounded">
+<xs:element name="ProductLine" type="inventory:ProductLineType"
+nillable="true" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Warnings" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+<xs:element name="Errors" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ProductLineType">
+<xs:sequence>
+<xs:element name="CRUDType" type="v6:CRUDTypeList" minOccurs="1"/>
+<xs:element name="LineNumber" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="IcTrxLineSeq" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="BlockId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="BlockIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="PoolId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="PoolIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="LotId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="LotIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="LotDescription" type="v6:String40Type"
+nillable="true" minOccurs="0"/>
+<xs:element name="Quality" type="v6:String16Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="QualityIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="Condition" type="v6:String16Type" nillable="true" minOccurs="0"/>
+<xs:element name="ConditionIdx" type="xs:int" nillable="true"/>
+<xs:element name="InventoryQuantity" type="xs:float" nillable="true" minOccurs="0"/>
+<xs:element name="Quantity" type="xs:float" nillable="true" minOccurs="0"/>
+<xs:element name="UnitOfMeasure" type="v6:String5Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="UOMIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="UnitsPerPallet" type="xs:int" nillable="true"
+minOccurs="0"/>
+<xs:element name="AvailableFlag" type="v6:CharType" nillable="true"
+minOccurs="0"/>
+<xs:element name="GTIN" type="v6:GTINType" nillable="true" minOccurs="0"/>
+<xs:element name="GS1Lot" type="v6:GS1LotType" nillable="true"
+minOccurs="0"/>
+<xs:element name="GS1Date" type="xs:date" nillable="true" minOccurs="0"/>
+<xs:element name="CompletedFlag" type="v6:CharType"
+nillable="true" minOccurs="0"/>
+<xs:element name="OverrideCost" type="xs:decimal" minOccurs="0"
+nillable="true"/>
+<xs:element name="EstimateNumber" type="xs:int"
+nillable="true" minOccurs="0"/>
+<xs:element name="EstimateSeq" type="xs:int"
+nillable="true" minOccurs="0"/>
+<xs:element name="PurchaseOrderNumber" type="v6:PurchaseOrderNumberType"
+nillable="true" minOccurs="0"/>
+<xs:element name="ApPoHdrIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="ApPoLineSeq" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="Product" type="v6:ProductType" minOccurs="0"
+nillable="true"/>
+<xs:element name="InventoryTags" minOccurs="0" nillable="true">
+<xs:complexType>
+<xs:sequence maxOccurs="unbounded" minOccurs="0">
+<xs:element name="InventoryTag" type="inventory:InventoryTagType"
+nillable="true" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Warnings" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+<xs:element name="Errors" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InventoryTagType">
+<xs:sequence>
+<xs:element name="CRUDType" type="v6:CRUDTypeList" nillable="true"
+minOccurs="0"/>
+<xs:element name="TagId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="TagIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="InventoryQuantity" type="xs:float" nillable="true"
+minOccurs="0"/>
+<xs:element name="Quantity" type="xs:float" nillable="true" minOccurs="0"/>
+<xs:element name="Quality" type="v6:String16Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="QualityIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="Condition" type="v6:String16Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="ConditionIdx" type="xs:int" nillable="true" minOccurs="0"/>
+<xs:element name="RoomRowId" type="v6:String12Type" nillable="true"
+minOccurs="0"/>
+<xs:element name="WhsePosIdx" type="xs:integer" nillable="true"
+minOccurs="0"/>
+<xs:element name="AvailableFlag" type="v6:CharType" nillable="true"
+minOccurs="0"/>
+<xs:element name="GTIN" type="v6:GTINType" nillable="true" minOccurs="0"/>
+<xs:element name="GS1Lot" type="v6:GS1LotType" nillable="true"
+minOccurs="0"/>
+<xs:element name="GS1Date" type="xs:date" nillable="true" minOccurs="0"/>
+<xs:element name="Warnings" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+<xs:element name="Errors" type="v6:LongStringType" nillable="true"
+minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

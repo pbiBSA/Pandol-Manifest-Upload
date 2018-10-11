@@ -1,0 +1,23 @@
+11/6/2012 11:42:32 AM:  Starting Test run.
+11/22/2015 11:28:16 AM:  Error Reading excel file. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at FAPI_Inventory_Import.GetDataSheetName.GetDataSheetNameList(String FileName) in \\pbs-fps\qsysopr\Visual Studio 2013\Projects\FAPI_Inventory_Import - Version 4.0\FAPI_Inventory_Import\GetDataSheetName.cs:line 52
+11/28/2015 9:35:30 AM:  Error Reading excel file. 
+System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   at System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
+   at System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   at System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OleDb.OleDbConnection.Open()
+   at FAPI_Inventory_Import.GetDataSheetName.GetDataSheetNameList(String FileName) in \\pbs-fps\qsysopr\Visual Studio 2013\Projects\FAPI_Inventory_Import - Version 4.0\FAPI_Inventory_Import\GetDataSheetName.cs:line 52
