@@ -5,26 +5,26 @@
     <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90</Value>
+      <Value Profile="(Default)">Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270</Value>
     </Setting>
     <Setting Name="ApplicationSettingsConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90</Value>
+      <Value Profile="(Default)">Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=True;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270</Value>
     </Setting>
     <Setting Name="ConnectionStringExcel" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Dsn=ImportExcel;dbq=C:\DataFiles\Import File.xlsx;defaultdir=C:\DataFiles;driverid=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=5&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Dsn=ImportExcel;dbq=C:\DataFiles\Import File.xlsx;defaultdir=C:\DataFiles;driverid=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=30&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Dsn=ImportExcel;dbq=C:\DataFiles\Import File.xlsx;defaultdir=C:\DataFiles;driverid=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=5</Value>
+      <Value Profile="(Default)">Dsn=ImportExcel;dbq=C:\DataFiles\Import File.xlsx;defaultdir=C:\DataFiles;driverid=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=30</Value>
     </Setting>
     <Setting Name="ImportExcelFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\DataFiles</Value>

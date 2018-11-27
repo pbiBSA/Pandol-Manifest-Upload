@@ -27,7 +27,7 @@ namespace FAPI_Inventory_Import.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=Tr" +
-            "ue;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90")]
+            "ue;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
@@ -38,7 +38,7 @@ namespace FAPI_Inventory_Import.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WEBAPPS;Initial Catalog=PBIApplicationTables;Persist Security Info=Tr" +
-            "ue;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=90")]
+            "ue;User ID=AppSettingsUser;Password=As@pb333;Connect Timeout=270")]
         public string ApplicationSettingsConnectionString {
             get {
                 return ((string)(this["ApplicationSettingsConnectionString"]));
@@ -49,7 +49,7 @@ namespace FAPI_Inventory_Import.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Dsn=ImportExcel;dbq=C:\\DataFiles\\Import File.xlsx;defaultdir=C:\\DataFiles;driveri" +
-            "d=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=5")]
+            "d=1046;fil=excel 12.0;maxbuffersize=2048;pagetimeout=30")]
         public string ConnectionStringExcel {
             get {
                 return ((string)(this["ConnectionStringExcel"]));

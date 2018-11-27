@@ -27,13 +27,13 @@ namespace FAPI_Inventory_Import
             OleDbConnection objConn = null;
             System.Data.DataTable dt = null;
             String connString;
-            String ServerVersionTxt;
+           // String ServerVersionTxt;
 
             try
             {
                 // Connection String. Change the excel file to the file you
                 // will search.
-              //  String connString = "Provider=Microsoft.ACE.OLEDB.12.0;" +
+              //  String connString = "Provider=Microsoft.ACE.OLEDB.16.0;" +
                //   "Data Source=" + sExcelFileName; + ";Extended Properties=Excel 12.0;";
 
                 if (FileName.Substring(FileName.LastIndexOf('.')).ToLower() == ".xlsx")

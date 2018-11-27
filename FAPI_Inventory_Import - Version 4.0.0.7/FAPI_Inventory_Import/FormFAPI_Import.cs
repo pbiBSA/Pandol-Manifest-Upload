@@ -186,19 +186,12 @@ namespace FAPI_Inventory_Import
           
             
             try
-            {
-                
-                // This line of code loads data into the 'applicationSettingsDataSet.Inventory_Warehouse_Codes' table. 
+            {               
                 this.inventory_Warehouse_CodesTableAdapter.Fill(this.applicationSettingsDataSet.Inventory_Warehouse_Codes);
-                // This line of code loads data into the 'applicationSettingsDataSetGrowersBlock.Grower_Block_ID_Codes' table.
                 this.grower_Block_ID_CodesTableAdapter1.Fill(this.applicationSettingsDataSetGrowersBlock.Grower_Block_ID_Codes);
-                // This line of code loads data into the 'applicationSettingsDataSetStorageID.Storage_ID_Codes' table.
                 this.storage_ID_CodesTableAdapter.Fill(this.applicationSettingsDataSetStorageID.Storage_ID_Codes);          
-                // This line of code loads data into the 'applicationSettingsDataSet4.Method_ID_Codes' table. 
                 this.method_ID_CodesTableAdapter.Fill(this.applicationSettingsDataSet4.Method_ID_Codes);
-                // This line of code loads data into the 'applicationSettingsDataSet1.Method_ID_Codes' table.
                 this.region_ID_CodesTableAdapter.Fill(this.applicationSettingsDataSet1.Region_ID_Codes);
-                // This line of code loads data into the 'applicationSettingsDataSet9.Commodity_Codes' table.
                 this.commodity_CodesTableAdapter.Fill(this.applicationSettingsDataSet9.Commodity_Codes);
 
                
@@ -260,9 +253,6 @@ namespace FAPI_Inventory_Import
                   ImportSettings.DataRange = (templatesettings[50]).ToString();
                   ImportSettings.Special_Processing = templatesettings[51].ToString();
                  
-
-
-
 
               //Set selected dropdown defaults
                 this.comboBoxTransactionType.SelectedIndex = 0;
@@ -445,7 +435,7 @@ namespace FAPI_Inventory_Import
                 try
                 {
                         DataRow rowVesselNumber;
-                        rowVesselNumber = this.ImportedVesselDataDataset.Tables[0].Rows[ImportSettings.VesselNumberRow];
+                        rowVesselNumber =  this.ImportedVesselDataDataset.Tables[0].Rows[ImportSettings.VesselNumberRow];
                         textBoxVesselNumber.Text = sVesselNumber = "";  //Vessel Number set to blank
 
                         DataRow rowVesselName;
@@ -729,8 +719,8 @@ namespace FAPI_Inventory_Import
         {
             if (!string.IsNullOrEmpty(comboBoxGrowerBlock.Text))
             {
-                sGrowerBlock = comboBoxGrowerBlock.SelectedValue.ToString();
-                sExporterName = comboBoxGrowerBlock.Text;
+                sGrowerBlock = comboBoxGrowerBlock.SelectedValue.ToString().Trim();
+                sExporterName = comboBoxGrowerBlock.Text.Trim();
                 textBoxExporter.Text = sExporterName;
             }
         }
@@ -749,7 +739,7 @@ namespace FAPI_Inventory_Import
         {
             if (!string.IsNullOrEmpty(comboBoxMethodID.Text))
             {
-                sMethodID = comboBoxMethodID.SelectedValue.ToString();
+                sMethodID = comboBoxMethodID.SelectedValue.ToString().Trim();
             }
         }
         
@@ -758,7 +748,7 @@ namespace FAPI_Inventory_Import
         {
             if (!string.IsNullOrEmpty(comboBoxStorageID.Text))
             {
-                sStorageID = comboBoxStorageID.SelectedValue.ToString();
+                sStorageID = comboBoxStorageID.SelectedValue.ToString().Trim();
             }
         }
 
@@ -848,9 +838,9 @@ namespace FAPI_Inventory_Import
                        ImportSettings.PackCodeColumn = Convert.ToInt32(templatesettings[46]);
                        ImportSettings.Custom_1 = Convert.ToInt32(templatesettings[47]);
                        ImportSettings.Other = Convert.ToInt32(templatesettings[48]);
-                       ImportSettings.DataSheet = templatesettings[49].ToString();
-                       ImportSettings.DataRange = (templatesettings[50]).ToString();
-                       ImportSettings.Special_Processing = templatesettings[51].ToString();
+                       ImportSettings.DataSheet = templatesettings[49].ToString().Trim();
+                       ImportSettings.DataRange = (templatesettings[50]).ToString().Trim();
+                       ImportSettings.Special_Processing = templatesettings[51].ToString().Trim();
 
 
                        //Show the current loaded template
@@ -939,7 +929,7 @@ namespace FAPI_Inventory_Import
 
             if (!String.IsNullOrEmpty(sExporterName))   //sGrowerBlock))
             {
-                exportDataList.Add(sExporterName);                 //sGrowerBlock);  //index 4
+                exportDataList.Add(sExporterName.Trim());                 //sGrowerBlock);  //index 4
             }
             else
             {
@@ -1000,7 +990,7 @@ namespace FAPI_Inventory_Import
 
             if (!String.IsNullOrEmpty(textBoxDepartureDate.Text))
             {
-                exportDataList.Add(textBoxDepartureDate.Text);  // index 12
+                exportDataList.Add(textBoxDepartureDate.Text.Trim());  // index 12
             }
             else
             {
@@ -1404,7 +1394,7 @@ namespace FAPI_Inventory_Import
         private void textBoxExporter_TextChanged(object sender, EventArgs e)
         {
             //sExporter = textBoxExporter.Text.Trim();  //Use text in text box
-            sGrowerBlock = comboBoxGrowerBlock.SelectedValue.ToString();  //Use export dropdown
+            sGrowerBlock = comboBoxGrowerBlock.SelectedValue.ToString().Trim();  //Use export dropdown
         }
 
 

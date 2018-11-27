@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.Common;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices.ComTypes;
 
 
 namespace FAPI_Inventory_Import
@@ -30,6 +31,16 @@ namespace FAPI_Inventory_Import
             Data2Export = ds.Copy();
             ImportSettings = ImS;
             exportStringList = dl;
+            Excel.Application excelapp;
+            //excelapp.Visible = true;
+           // excelapp.DisplayAlerts = false;  //don't display any dialog boxes or alerts from the excel app.
+
+
+            Excel._Workbook workbook;
+            Excel.Worksheet worksheet;
+            workbook = null;
+            worksheet = null;
+
 
             //do combining here
             CombineMixedBoxesOnPallets CombinedBoxes = new CombineMixedBoxesOnPallets(Data2Export, ImportSettings, "Adams");
@@ -66,17 +77,32 @@ namespace FAPI_Inventory_Import
 
             if (result == DialogResult.OK)  //only try to open excel file if open dialog <OK> button was clicked.
             {
-              
+
+                try
+                {
                     //Excel.ApplicationClass excelapp = new Excel.ApplicationClass();
-                    Excel.Application excelapp = new Excel.Application();
+                    //Excel.Application 
+                    excelapp = new Excel.Application();
                     excelapp.Visible = true;
+
+            
                     excelapp.DisplayAlerts = false;  //don't display any dialog boxes or alerts from the excel app.
 
 
-                    Excel._Workbook workbook = (Excel._Workbook)(excelapp.Workbooks.Add(Type.Missing));
-                    Excel.Worksheet worksheet = workbook.ActiveSheet as Excel.Worksheet;
-                    
-                    
+                    // Excel._Workbook 
+                    workbook = (Excel._Workbook)(excelapp.Workbooks.Add(Type.Missing));
+                    // Excel.Worksheet 
+                    worksheet = workbook.ActiveSheet as Excel.Worksheet;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error creating new Excel workbook. \nContact the adminstrator for help and note what you just did.  \n" +
+                        "See error log for more information.  \n");
+                    Error_Logging el = new Error_Logging("Error creating new Excel workbook. \n" + ex);
+                    return;
+                }
+
 
                 //    Excel._Worksheet worksheet = (Excel.Worksheet)workbook.ActiveSheet;
 
@@ -154,6 +180,8 @@ namespace FAPI_Inventory_Import
                         if (ImportSettings.PalletPrefixColumn == ImportSettings.TagNumberColumn || exportStringList[10].ToString().Length < 1)
                         {
                             tempString = Data2Export.Tables[0].Rows[ExportDataRow][ImportSettings.TagNumberColumn].ToString().Trim();
+                            worksheet.Cells[tempdataRow, 2].NumberFormat = "@";
+                            worksheet.Cells[tempdataRow, 2].HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
                             worksheet.Cells[tempdataRow, 2] = tempString.Substring(3, tempString.Length - 3);  //Pallet Number
                         }
                         else
@@ -194,10 +222,16 @@ namespace FAPI_Inventory_Import
 
                     worksheet.Cells[1, 10] = BoxCount;
 
-                    
 
-                    workbook.SaveAs(ExcelFileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, misValue, misValue, misValue, misValue);
-
+                    try
+                    {
+                        workbook.SaveAs(ExcelFileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, misValue, misValue, misValue, misValue);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Adams excel file could not be saved or was saved/closed by user.");
+                        Error_Logging el = new Error_Logging("Adams excel file could not be saved. \n" + ex);
+                    }
                     excelapp.UserControl = true;
                 }
                 catch (Exception ex)
@@ -207,7 +241,17 @@ namespace FAPI_Inventory_Import
                     Error_Logging el = new Error_Logging("Error writing pallet data to Export Excel spreadsheet. \n" + ex);
                 }
 
-                workbook.Close(true, misValue, misValue);
+
+                try
+                {
+                    workbook.Close(false, System.Type.Missing, System.Type.Missing);
+                }
+                catch (Exception ex)
+                {
+                    Error_Logging el = new Error_Logging("Error closing workbook after saving. \n" + ex);
+                
+                }
+           
                 excelapp.Quit();
 
                 releaseObject(worksheet);
@@ -222,7 +266,7 @@ namespace FAPI_Inventory_Import
         private void releaseObject(object obj)  //Release the excel object and any connections and memmory
         {
             try
-            {
+            {     
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
                 obj = null;
             }

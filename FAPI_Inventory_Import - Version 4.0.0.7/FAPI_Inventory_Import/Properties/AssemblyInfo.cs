@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pandol")]
 [assembly: AssemblyProduct("Manifest Upload Application")]
-[assembly: AssemblyCopyright("Copyright ©  2012-17")]
+[assembly: AssemblyCopyright("Copyright ©  2012-18")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.0.7")]
-[assembly: AssemblyFileVersion("4.0.0.7")]
+[assembly: AssemblyVersion("4.0.0.14")]
+[assembly: AssemblyFileVersion("4.0.0.14")]

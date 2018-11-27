@@ -110,3 +110,4 @@ System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not
 System.IndexOutOfRangeException: Cannot find table 0.
    at System.Data.DataTableCollection.get_Item(Int32 index)
    at FAPI_Inventory_Import.FormFAPI_Import.openToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\mikhael\Documents\Visual Studio 2008\Projects\FAPI_Inventory_Import\FAPI_Inventory_Import\FormFAPI_Import.cs:line 470
+2/4/2018 11:00:00 AM:  Starting Test run.
